@@ -16,7 +16,7 @@ const items = {
     actions: {
         async fetchItems(){
             try {
-                const { data: items } = await axios.get("http://localhost:3000/api/items")
+                const { data: items } = await axios.get("http://localhost:5000/api/items")
                 store.commit.items.setItems(items)
             } catch (error) {
                 console.error(`Error fetching items: ${error}`)
