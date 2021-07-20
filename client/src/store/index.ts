@@ -10,7 +10,7 @@ const {
   rootGetterContext,
   moduleGetterContext
 } = createDirectStore({
-  modules: {
+  modules:{
     items
   }
 })

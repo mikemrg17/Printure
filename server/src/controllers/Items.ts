@@ -1,6 +1,6 @@
 class Items {
-    defaultMethod() {
-      return [
+
+    items = [
         {
           id: 1, 
           photo: 'https://random.imagecdn.app/200/200',
@@ -114,6 +114,26 @@ class Items {
             owner: "Miguel" 
         }
       ]
+
+
+    defaultMethod() {
+      return this.items 
+    }
+
+    /*addItem(item:any){
+        this.items.push(item)
+    }*/
+
+    deleteItem(id:number){
+        //console.log(`Delete item function executed with id: ${id} `)
+        //Now we go through the array to find the object with the id  
+        /*for(let i = 0; i < this.items.length; i++){
+            if(id === this.items[i].id){
+                console.log(`Finded id: ${id}`)
+                break
+            }
+        }*/
+        this.items = this.items.filter(item => item.id != id)
     }
   }
   

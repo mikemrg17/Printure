@@ -31,7 +31,7 @@ const server = new Server();
 
 server.app.use(cors(options));
 
-//Starting page
+//Root page is /api
 server.app.use('/api', server.router);
 
 // make server listen on some port

@@ -1,6 +1,7 @@
 import { IItem } from '@/interfaces/item'
 import axios from 'axios'
 import store from '..'
+import { localActionContext} from 'direct-vuex'
 
 interface IState {
     loading: boolean,
@@ -16,10 +17,19 @@ const items = {
     actions: {
         async fetchItems(){
             try {
-                const { data: items } = await axios.get("http://localhost:5000/api/items")
+                const { data: items } = await axios.get("http://localhost:3000/api/items")
                 store.commit.items.setItems(items)
             } catch (error) {
                 console.error(`Error fetching items: ${error}`)
+            }
+        },
+        async deleteItem(...id:any){
+            try {
+                //console.log(id[1])
+                const { data: items } = await axios.delete(`http://localhost:3000/api/items/${id[1]}`)
+                store.commit.items.setItems(items)
+            } catch (error) {
+                console.error(`Error deleting item: ${error}`)
             }
         }
     },
@@ -31,3 +41,4 @@ const items = {
 }
 
 export default items
+

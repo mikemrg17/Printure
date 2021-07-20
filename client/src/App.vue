@@ -7,8 +7,20 @@
         </div>
         <div class="md:flex md:flex-row md:ml-auto">
           <!-- border-red-800 -->
-          <router-link to='/items' class="[open ? border-b-4 : return] p-2 text-base font-medium text-black hover:text-red-800 m-5">Items</router-link>
-          <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 active:border-b-4 active:border-red-800">Home</router-link>
+          <div v-if='startPage'>
+            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Items</router-link>
+            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Home</router-link>
+          </div>
+
+          <div v-if="homePage">
+            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Items</router-link>
+            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 border-red-800">Home</router-link>
+          </div>
+          
+          <div v-if='itemsPage'>
+            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 border-red-800">Items</router-link>  
+            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Home</router-link>
+          </div>
         </div>
       </div>
     </header>
@@ -29,8 +41,22 @@ export default defineComponent({
   },
   comoponents:{},
   computed: {
-    homePage(){
+    startPage(){
       if(this.$route.path === '/'){
+        return true
+      }else{
+        return false
+      }
+    },
+    homePage(){
+      if(this.$route.path === '/home'){
+        return true
+      }else{
+        return false
+      }
+    },
+    itemsPage(){
+      if(this.$route.path === '/items'){
         return true
       }else{
         return false

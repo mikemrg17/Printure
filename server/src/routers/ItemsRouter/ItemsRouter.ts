@@ -20,6 +20,16 @@ class ItemsRouter {
     this._router.get('/', (req: Request, res: Response, next: NextFunction) => {
       res.status(200).json(this._controller.defaultMethod());
     });
+
+    this._router.post('/', (req: Request, res: Response, next: NextFunction)=>{
+      res.status(200).json()
+    })
+
+    this._router.delete('/:id', (req: Request, res: Response, next: NextFunction) => {
+      const id = parseInt(req.params.id)
+      this._controller.deleteItem(id)
+      res.status(200).json(this._controller.defaultMethod())
+    })
   }
 }
 
