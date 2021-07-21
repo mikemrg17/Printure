@@ -31,6 +31,15 @@ const items = {
             } catch (error) {
                 console.error(`Error deleting item: ${error}`)
             }
+        },
+        async editItem(...item:any){
+            try {
+                //console.log(`Item received ${item[1]}`)
+                const { data: items } = await axios.put(`http://localhost:3000/api/items/${item[1].id}`, item[1])
+                store.commit.items.setItems(items)
+            } catch (error) {
+                console.error(`Error editing item: ${error}`)
+            }
         }
     },
     mutations:{

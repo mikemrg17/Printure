@@ -135,6 +135,18 @@ class Items {
         }*/
         this.items = this.items.filter(item => item.id != id)
     }
+
+    editItem(id:number,editedItem:any){
+        //console.log(`Delete item function executed with id: ${id} `)
+        //Now we go through the array to find the object with the id  
+        /*for(let i = 0; i < this.items.length; i++){
+            if(id === this.items[i].id){
+                console.log(`Finded id: ${id}`)
+                break
+            }
+        }*/
+        this.items[editedItem.id -1] = editedItem
+    }
   }
   
   export = new Items();

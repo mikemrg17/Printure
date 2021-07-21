@@ -13,10 +13,13 @@
         <div v-show="editItemModal">
             <EditItemModal 
                 @close-modal="editItemModal = false"
+                @edit-item="onEditItem"
                 :info='{
                     id: data.id,
+                    name: data.name,
                     description: data.description,
-                    owner: data.owner
+                    owner: data.owner,
+                    photo: data.photo
                 }'
             />
         </div>
@@ -72,6 +75,10 @@ export default defineComponent({
         onDeleteItem(id:Number){
             this.deleteItemModal= false
             this.$emit('delete-item', id)
+        },
+        onEditItem(item:any){
+            this.editItemModal = false
+            this.$emit('edit-item', item)
         }
     }
 })

@@ -6,8 +6,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderColor: ['hover']
-    },
+      borderColor: ['hover', 'focus']
+    }
   },
   plugins: [],
 }

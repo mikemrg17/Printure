@@ -31,6 +31,10 @@ const server = new Server();
 
 server.app.use(cors(options));
 
+//We need to add the following line to parse the request body from a POST/PUT request,
+//if this line is not added then we'll get an undefined request body
+server.app.use(express.json());
+
 //Root page is /api
 server.app.use('/api', server.router);
 
