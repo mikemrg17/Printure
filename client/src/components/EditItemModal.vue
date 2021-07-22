@@ -96,7 +96,7 @@ export default defineComponent({
     },
     methods: {
       onSubmit(e:any){
-        if(this.owner=='' || this.description==='' || this.owner=== ''){
+        if(this.name=='' || this.description==='' || this.owner=== ''){
           alert("Please don't leave empty fields")
           return
         }

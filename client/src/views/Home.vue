@@ -1,5 +1,5 @@
 <template>
-  <h1>Printing the future</h1>
+  <h1 class="text-red-800 animate-beat">Printing the future</h1>
 </template>
 
 <script lang="ts">

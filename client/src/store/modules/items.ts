@@ -1,7 +1,6 @@
 import { IItem } from '@/interfaces/item'
 import axios from 'axios'
 import store from '..'
-import { localActionContext} from 'direct-vuex'
 
 interface IState {
     loading: boolean,
@@ -21,6 +20,14 @@ const items = {
                 store.commit.items.setItems(items)
             } catch (error) {
                 console.error(`Error fetching items: ${error}`)
+            }
+        },
+        async addItem(...newItem:any){
+            try {
+                const { data: items } = await axios.post(`http://localhost:3000/api/items`, newItem[1])
+                store.commit.items.setItems(items)
+            } catch (error) {
+                console.error(`Error adding item: ${error}`)
             }
         },
         async deleteItem(...id:any){

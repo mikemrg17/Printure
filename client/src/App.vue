@@ -1,8 +1,8 @@
 <template>
   <div class="bg-white rounded-off">
-    <header class="p-5 space-x-10 justify-left sticky top-0 bg-white">
+    <header class="p-5 space-x-10 justify-left bg-white">
       <div class="container flex"> 
-        <div class="justify-center items-center">
+        <div class="justify-center items-center cursor-pointer hover:animate-wiggle">
           <img @click="Iclick()" src="@/assets/PrintureLogos/printurelogo_header.png">
         </div>
         <div class="md:flex md:flex-row md:ml-auto">

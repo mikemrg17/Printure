@@ -117,12 +117,26 @@ class Items {
 
 
     defaultMethod() {
-      return this.items 
+      //return this.items.sort()
+        this.items.sort(function(a, b){
+            return b.id - a.id 
+        })
+
+        return this.items
+        
     }
 
-    /*addItem(item:any){
-        this.items.push(item)
-    }*/
+    addItem(item:any){
+        
+        const newItem = {
+            id: this.items.length+1,
+            photo: item.photo,
+            name: item.name,
+            description: item.description,
+            owner: item.owner
+        }
+        this.items = [...this.items, newItem]
+    }
 
     deleteItem(id:number){
         //console.log(`Delete item function executed with id: ${id} `)

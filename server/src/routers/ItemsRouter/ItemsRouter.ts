@@ -21,9 +21,11 @@ class ItemsRouter {
       res.status(200).json(this._controller.defaultMethod());
     });
 
-    /*this._router.post('/', (req: Request, res: Response, next: NextFunction)=>{
-      res.status(200).json()
-    })*/
+    this._router.post('/', (req: Request, res: Response, next: NextFunction)=>{
+      const newItem = req.body
+      this._controller.addItem(newItem)
+      res.status(200).json(this._controller.defaultMethod())      
+    })
 
     this._router.delete('/:id', (req: Request, res: Response, next: NextFunction) => {
       const id = parseInt(req.params.id)
@@ -33,9 +35,9 @@ class ItemsRouter {
 
     this._router.put('/:id', (req: Request, res: Response, next: NextFunction) => {
       const id = parseInt(req.params.id)
-        const editedItem = req.body
-        this._controller.editItem(id,editedItem)
-        res.status(200).json(this._controller.defaultMethod())      
+      const editedItem = req.body
+      this._controller.editItem(id,editedItem)
+      res.status(200).json(this._controller.defaultMethod())      
     })
   }
 }
