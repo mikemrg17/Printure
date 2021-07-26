@@ -2,24 +2,27 @@
   <div class="bg-white rounded-off">
     <header class="p-5 space-x-10 justify-left bg-white">
       <div class="container flex"> 
-        <div class="justify-center items-center cursor-pointer hover:animate-wiggle">
-          <img @click="Iclick()" src="@/assets/PrintureLogos/printurelogo_header.png">
+        <div class="justify-center items-center hover:animate-wiggle" >
+          <img @click="homeGo()" class="cursor-pointer" src="@/assets/PrintureLogos/printureLogo_header.png">
         </div>
         <div class="md:flex md:flex-row md:ml-auto">
           <!-- border-red-800 -->
           <div v-if='startPage'>
             <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Items</router-link>
             <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Home</router-link>
+            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Log In</router-link>
           </div>
 
           <div v-if="homePage">
             <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Items</router-link>
             <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 border-red-800">Home</router-link>
+            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Log In</router-link>
           </div>
           
           <div v-if='itemsPage'>
-            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 border-red-800">Items</router-link>  
+            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 border-blue-700">Items</router-link>  
             <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Home</router-link>
+            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Log In</router-link>
           </div>
         </div>
       </div>
@@ -35,8 +38,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   methods: {
-    Iclick(){
-      console.log('click')
+    homeGo(){
+      this.$router.push('home')
     }
   },
   comoponents:{},

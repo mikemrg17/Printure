@@ -151,15 +151,16 @@ class Items {
     }
 
     editItem(id:number,editedItem:any){
-        //console.log(`Delete item function executed with id: ${id} `)
+        //console.log(`Edit item function executed with id: ${id}`)
         //Now we go through the array to find the object with the id  
-        /*for(let i = 0; i < this.items.length; i++){
+        for(let i = 0; i < this.items.length; i++){
             if(id === this.items[i].id){
-                console.log(`Finded id: ${id}`)
+                //console.log(`Finded id: ${id}`)
+                this.items[i] = editedItem
                 break
             }
-        }*/
-        this.items[editedItem.id -1] = editedItem
+        }
+        //this.items[editedItem.id -1] = editedItem
     }
   }
   
