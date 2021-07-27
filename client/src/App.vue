@@ -8,21 +8,21 @@
         <div class="md:flex md:flex-row md:ml-auto">
           <!-- border-red-800 -->
           <div v-if='startPage'>
-            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Items</router-link>
-            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Home</router-link>
-            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Log In</router-link>
+            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 hover:border-blue-800">Items</router-link>
+            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 hover:border-blue-800">Home</router-link>
+            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 hover:border-blue-800">Log In</router-link>
           </div>
 
           <div v-if="homePage">
-            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Items</router-link>
-            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 border-red-800">Home</router-link>
-            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Log In</router-link>
+            <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 hover:border-blue-800">Items</router-link>
+            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 border-blue-800">Home</router-link>
+            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 hover:border-blue-800">Log In</router-link>
           </div>
           
           <div v-if='itemsPage'>
             <router-link to='/items' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 border-blue-700">Items</router-link>  
-            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Home</router-link>
-            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-red-800 m-5 border-b-4 hover:border-red-800">Log In</router-link>
+            <router-link to='/home' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 hover:border-blue-800">Home</router-link>
+            <router-link to='/login' class="p-2 text-base font-medium text-black hover:text-blue-800 m-5 border-b-4 hover:border-blue-800">Log In</router-link>
           </div>
         </div>
       </div>
