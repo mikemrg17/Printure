@@ -164,4 +164,4 @@ class Items {
     }
   }
   
-  export = new Items();
+export = new Items();

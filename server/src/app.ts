@@ -3,7 +3,6 @@ import express from 'express'
 import RootRouter from './routers/RootRouter'
 import cors from 'cors'
 
-
 // load the environment variables from the .env file
 dotenv.config({
   path: '.env'
