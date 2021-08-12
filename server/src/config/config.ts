@@ -1,4 +1,9 @@
-import dotenv from 'dotenv';
+
+export default {
+    key: "mysupersecretkey123"
+}
+
+/*import dotenv from 'dotenv';
 
 dotenv.config({
     path: '.env'
@@ -19,4 +24,4 @@ const config = {
     }
 }
 
-export default config
+export default config*/

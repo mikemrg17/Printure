@@ -1,24 +1,22 @@
-import { IItem } from '@/interfaces/item'
+import { IUser } from '@/interfaces/user'
 import axios from 'axios'
 import store from '..'
 
 interface IState {
     loading: boolean,
-    itemsArray: IItem[] | null
+    user: IUser[] | null
 }
 
-const API_BASE_URL = 'http://localhost:5000'
-
-const items = {
+const users = {
     namespaced: true as true,
     state: {
         loading: false,
-        itemsArray: []
+        user: null
     } as IState,
     actions: {
-        async fetchItems(){
+        /*async fetchItems(){
             try {
-                const { data: items } = await axios.get(`${API_BASE_URL}/api/items`)
+                const { data: items } = await axios.get("http://localhost:3000/api/items")
                 store.commit.items.setItems(items)
             } catch (error) {
                 console.error(`Error fetching items: ${error}`)
@@ -52,11 +50,11 @@ const items = {
         }
     },
     mutations:{
-        setItems(state: IState, items: IItem[] | null){
+        setItems(state: IState, items: IUser[] | null){
             state.itemsArray = items
-        }
+        }*/
     }
 }
 
-export default items
+export default users
 

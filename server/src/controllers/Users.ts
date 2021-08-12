@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
+import bcryptjs from 'bcryptjs'
 
 class Users {
   users = [
@@ -28,15 +29,25 @@ class Users {
     }
   }
 
-  register(){
+  register(username: string, password: string){
+    bcryptjs.hash(password, 10, (hashError, hash) => {
+      if(hashError){
+        return hashError
+      }
+
+      this.users.push({username, password})
+
+    })
+
     return{
       text: `User registered`
     }
   }
 
-  logIn(){
+  logIn(username: string, password: string){
+    const found = this.users.find(user => user == {username,password})
     return{
-      text: `User logged in`
+      text: `User logged in ${found}`
     }
   }
 

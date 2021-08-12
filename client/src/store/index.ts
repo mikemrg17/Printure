@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import { createDirectStore } from "direct-vuex"
 import items from './modules/items'
+import users from './modules/users'
 
 const {
   store,
@@ -11,7 +12,8 @@ const {
   moduleGetterContext
 } = createDirectStore({
   modules:{
-    items
+    items,
+    users
   }
 })
 
