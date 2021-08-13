@@ -7,7 +7,7 @@ interface IState {
     itemsArray: IItem[] | null
 }
 
-const API_BASE_URL = 'http://localhost:5000'
+const API_BASE_URL = 'http://localhost:3000'
 
 const items = {
     namespaced: true as true,
@@ -26,7 +26,7 @@ const items = {
         },
         async addItem(...newItem:any){
             try {
-                const { data: items } = await axios.post(`http://localhost:3000/api/items`, newItem[1])
+                const { data: items } = await axios.post(`${API_BASE_URL}/api/items`, newItem[1])
                 store.commit.items.setItems(items)
             } catch (error) {
                 console.error(`Error adding item: ${error}`)
@@ -35,7 +35,7 @@ const items = {
         async deleteItem(...id:any){
             try {
                 //console.log(id[1])
-                const { data: items } = await axios.delete(`http://localhost:3000/api/items/${id[1]}`)
+                const { data: items } = await axios.delete(`${API_BASE_URL}/api/items/${id[1]}`)
                 store.commit.items.setItems(items)
             } catch (error) {
                 console.error(`Error deleting item: ${error}`)
@@ -44,7 +44,7 @@ const items = {
         async editItem(...item:any){
             try {
                 //console.log(`Item received ${item[1]}`)
-                const { data: items } = await axios.put(`http://localhost:3000/api/items/${item[1].id}`, item[1])
+                const { data: items } = await axios.put(`${API_BASE_URL}/api/items/${item[1].id}`, item[1])
                 store.commit.items.setItems(items)
             } catch (error) {
                 console.error(`Error editing item: ${error}`)

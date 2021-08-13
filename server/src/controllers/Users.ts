@@ -4,7 +4,7 @@ import bcryptjs from 'bcryptjs'
 class Users {
   users = [
     {
-      username: "mike_mrg17",
+      username: "mikemrg17",
       password: "password"
     },
     {
@@ -30,24 +30,20 @@ class Users {
   }
 
   register(username: string, password: string){
-    bcryptjs.hash(password, 10, (hashError, hash) => {
-      if(hashError){
-        return hashError
-      }
-
-      this.users.push({username, password})
-
-    })
-
     return{
       text: `User registered`
     }
   }
 
   logIn(username: string, password: string){
-    const found = this.users.find(user => user == {username,password})
-    return{
-      text: `User logged in ${found}`
+    //We go through the array to find the username and the password
+    let userReceived = {username, password}
+    for(let user of this.users){
+      if(user.username.localeCompare(userReceived.username) != -1 && user.password.localeCompare(userReceived.password) != -1){
+        return 0
+      }else{
+        return 1
+      }
     }
   }
 

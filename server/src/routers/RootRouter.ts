@@ -19,8 +19,8 @@ class RootRouter {
    * Connect routes to their matching routers.
    */
   private _configure() {
-    this._router.use('/Items', this._subrouterA);
-    this._router.use('/Users', this._subrouterB);
+    this._router.use('/items', this._subrouterA);
+    this._router.use('/users', this._subrouterB);
   }
 }
 

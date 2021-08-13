@@ -39,10 +39,10 @@ export default defineComponent({
             }
 
             const newItem = {
-            photo: 'https://random.imagecdn.app/200/200',
-            name: this.name,
-            description: this.description,
-            owner: this.owner 
+                photo: 'https://random.imagecdn.app/200/200',
+                name: this.name,
+                description: this.description,
+                owner: this.owner 
             }
             
             this.$emit('add-item', newItem)

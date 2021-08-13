@@ -1,28 +1,25 @@
-import { Request, Response, NextFunction } from "express";
+import { Router } from "express" 
+import config from "../config/config"
 import jwt from 'jsonwebtoken'
-import config from '../config/config'
 
-const NAMESPACE = "Auth"
-
-const extractJWT = (req: Request, res: Response, next: NextFunction) => {
-    let token = req.headers.authorization?.split(' ')[1]
-    if(token){
-        jwt.verify(token, config.token.secret, (error, decoded) => {
-            if(error){
-                return res.status(404).json({
-                    message: error.message,
-                    error
-                })
+const extractJWT = Router()
+extractJWT.use((req, res, next)=>{
+    const token = req.headers['access-token']
+    console.log(token)
+    /*if(token){
+        jwt.verify(token, config.key, (err, decoded)=>{
+            if(err){
+                return res.json({ mensaje: 'Unvalid token' })
             }else{
-                res.locals.jwt = decoded
-                next()
+                (<any>req).decoded = decoded;    
+                next();
             }
         })
     }else{
-        return res.status(401).json({
-            message: 'Unauthorized'
-        })
-    }
-}
+        res.send({ 
+            mensaje: 'Token not found' 
+        });
+    }*/
+})
 
 export default extractJWT

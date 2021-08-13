@@ -7,7 +7,7 @@
                     Username
                 </label>
                 <div class="flex">
-                    <i class="fas fa-user m-auto mx-3 text-gray-700"></i><input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+                    <i class="fas fa-user m-auto mx-3 text-gray-700"></i><input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" v-model="username" required>
                 </div>
             </div>
             <div class="mb-6">
@@ -15,7 +15,7 @@
                     Password
                 </label>
                 <div class="flex">
-                    <i class="fas fa-key m-auto mx-3 text-gray-700"></i><input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+                    <i class="fas fa-key m-auto mx-3 text-gray-700"></i><input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" v-model="password" required>
                 </div>
             </div>
             <div class="flex items-center justify-between">
@@ -36,9 +36,23 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
     name: 'LogInForm',
+    data(){
+        return {
+            username: '',
+            password: ''
+        }
+    },
     methods:{
         onLogIn(){
-            alert('Logged In')
+            let session = {
+                username: this.username,
+                password: this.password
+            }
+
+            this.$emit('log-in', session)
+
+            this.username = ''
+            this.password = ''
         }
     }
 })

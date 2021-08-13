@@ -1,7 +1,9 @@
 
 import { NextFunction, Request, Response, Router } from 'express';
 import Users from '../../controllers/Users';
-import signJWT from '../../functions/signJWT';
+import jwt from 'jsonwebtoken';
+import config from '../../config/config'
+import extractJWT from '../../middleware/extractJWT';
 
 //NAMESPACED is a constant which contains the name of the module
 const NAMESPACE = "User"
@@ -23,7 +25,7 @@ class UsersRouter {
    */
   private _configure() {
     //Validate user
-    this._router.get('/validate', (req: Request, res: Response, next: NextFunction) => {
+    this._router.get('/validate', extractJWT , (req: Request, res: Response, next: NextFunction) => {
       res.status(200).json(this._controller.validate());
     });
 
@@ -44,12 +46,25 @@ class UsersRouter {
     this._router.post('/logIn', (req: Request, res: Response, next: NextFunction) => {
       let { username, password } = req.body
       let flag =  this._controller.logIn(username, password)
-
-      res.status(200).json(this._controller.defaultMethod());
+      if(flag === 0){
+        const payload = {
+          check: true
+        }
+        const token = jwt.sign(payload, config.key, { expiresIn: 1440 })
+        res.status(200).json({
+          message: 'Authorized',
+          token: token
+        });
+      }else{
+        res.status(500).json({
+          message: 'Unauthorized'
+        });
+      }
+      
     });
 
     //Get all users
-    this._router.get('/getAll', (req: Request, res: Response, next: NextFunction) => {
+    this._router.get('/getAll', extractJWT , (req: Request, res: Response, next: NextFunction) => {
       res.status(200).json(this._controller.defaultMethod());
     });
 

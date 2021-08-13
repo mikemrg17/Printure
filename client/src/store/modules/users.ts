@@ -7,6 +7,8 @@ interface IState {
     user: IUser[] | null
 }
 
+const API_BASE_URL = 'http://localhost:3000'
+
 const users = {
     namespaced: true as true,
     state: {
@@ -14,6 +16,13 @@ const users = {
         user: null
     } as IState,
     actions: {
+        async logIn(...session: any){
+            try {
+                const res = await axios.post(`${API_BASE_URL}/api/Users/logIn`, session[1])
+            } catch (error) {
+                
+            }
+        }
         /*async fetchItems(){
             try {
                 const { data: items } = await axios.get("http://localhost:3000/api/items")
